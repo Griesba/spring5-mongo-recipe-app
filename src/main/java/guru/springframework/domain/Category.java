@@ -1,21 +1,17 @@
 package guru.springframework.domain;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.Set;
 
-@Data
-@EqualsAndHashCode(exclude = {"recipes"})
-@Entity
+/**
+ * Created by jt on 6/13/17.
+ */
+@Getter
+@Setter
 public class Category {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String description;
-
-    @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
-
 }
